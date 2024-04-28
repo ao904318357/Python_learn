@@ -91,3 +91,59 @@ result = average(1,2,3)
 print(result)
 
 
+
+# 缺省参数，形参，在函数定义的时候，给形参一个默认值，这个形参就是确实参数
+
+def func(a, b, c=10):  # 缺省参数只能在普通函数后面
+    print(f"hha{a}")
+    print(f"hha{b}")
+    print(f"hha{c}")
+
+
+func(10, 20)
+
+
+# 在形参前面加上一个*,该形参变为不定长元组参数，可以接受所有的位置传参
+# 加入2个*号，该形参变为不定长字典形参，可以接受所有关键字实参，类型是字典
+def func(*args, **kwargs):  # args接受位置传参，kewargs关键字传参
+    print(args)
+    print(kwargs)
+
+
+func(1, 2, 32, 3)
+func(1, 2, 3, a='1', b='3')  # (1, 2, 3)  {'a': '1', 'b': '3'} 前面的给了位置传参，后面的给了关键词传参
+
+
+def my_num(*args, **kwargs):
+    num = 0
+    for i in args:
+        num += i
+    for j in kwargs.values():
+        num += j
+    print(f'求和结果为{num}')
+
+
+my_num(1, 2, 3, a=1, b=10)
+
+
+# 函数形参的完整格式
+def func(a, *args, b=1):  # func(a,b=1,*args)   func(1,2,3,4)这样B就不是默认参数了
+    print('a', a)
+    print("b", b)
+    print(args)
+
+
+func(1, 2, 3, 4)  # a 1 b 1 (2, 3, 4)
+
+def func1(a,  b=1,*args):  # func(a,b=1,*args)   func(1,2,3,4)这样B就不是默认参数了
+    print('a', a)
+    print("b", b)
+    print(args)
+
+
+func1(1, 2, 3, 4)  # a 1 b 2 ( 3, 4)
+
+def func2(a,*args,b=1,**kwargs):   # 普通参数，不定长元组参数，缺省参数，不定长字典参数
+    pass
+
+
