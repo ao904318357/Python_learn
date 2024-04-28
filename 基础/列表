@@ -1,0 +1,96 @@
+# encoding=utf-8
+# 列表是一种数据类型，可以存放多个数据
+
+my_list = []
+my_list1 = list()   # 空列表，数据元素使用逗号隔开
+print(my_list,type(my_list))
+print(type(my_list1))
+
+my_list2 = [1,2,'sss',True]
+print(my_list2)
+
+print(len(my_list2))    # 列表长度
+
+# 列表支持下标和切片
+print(my_list2[::2])    # return [1, 'sss']
+
+# 列表的遍历
+for x in my_list2:
+    print(x,'\n')
+
+# 想列表添加数据的方法 append_列表尾部添加数据、insert_插入、extend（可迭代对象）
+
+my_list2.append('zzw')          # [1, 2, 'sss', True, 'zzw']
+print(my_list2)
+
+my_list2.insert(2,'ml')    # [1, 2, 'ml', 'sss', True, 'zzw']
+print(my_list2)
+
+a = 'hello'
+my_list2.extend(a)      # 将可迭代数据逐个添加
+print(my_list2)           # [1, 2, 'ml', 'sss', True, 'zzw', 'h', 'e', 'l', 'l', 'o']
+my_list2.extend([1,'222',3])
+print(my_list2)
+
+# 列表中的查询 index（）、count（）、in、not in
+my_list = [1,3.14,'zzwzuishaui',True,False]   # 布尔ture类型当作整数1
+num = my_list.index(3.14)
+print(num)
+
+num1 = my_list.count('zzwzuishaui')
+print(num1)
+
+num3 = 3.14 in my_list
+print(num3)    # Ture
+
+# 列表的删除 pop_删除最后一个内容并返回、del、remove
+print(my_list)
+my_list.remove(True)
+print(my_list)
+
+num1  = my_list.pop()   #默认删除最后，可以加下标pop（2）
+print(num1)
+print(my_list)
+
+del my_list[1]  # 删除下标为1的数据
+print(my_list)
+
+# 列表的排序 sort
+my_list = [1,5,7,2,7]
+my_list.sort(reverse=True)
+print(my_list)
+
+num = sorted(my_list)
+print(num)
+# 逆置列表
+print(my_list)
+a = my_list[::-1]
+my_list.reverse()
+print(a)
+print(my_list)
+
+# 列表的嵌套
+school = [['清华','北大'],['野鸡大专','野鸡大学']]
+a = school[1][1]
+b = school[1][1][1] # return 鸡
+print(b)
+
+for schools in school:
+    print(schools)
+for schools,x in school:
+    print(schools,x)
+
+"""一个学校，3个办公室，8个老师分配工位，随机分配"""
+# 定义学校和办公室  [[],[],[]]  定义老师[1,2,3,4,5,6,7,8],随机 遍历列表
+import random
+offices = [[],[],[]]
+Teachers = ['a','b','c','d','e','f','g','h']
+# 遍历老师列表，依次分配到办公室中
+for teacher in Teachers:
+    num1 = random.randint(0,len(offices)-1)
+    offices[num1].append(teacher)
+
+# 输出结果
+for i, office in enumerate(offices):
+    print(f"学校{i+1}的老师有：{office}")
+

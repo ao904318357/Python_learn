@@ -1,0 +1,90 @@
+d = {'zzw':'18',"ml":"21"}
+print(d['zzw'])
+d['zzw']= 20
+print(d.get("wy",-1))
+print(d)
+
+# 创建集合
+s = set([1,2,3,5,2,])
+print(s)
+s1 = set([1,2,4])
+s2 = set([2,4,5])
+print(s1&s2,s1|s2)
+print(s)
+
+# 定义一个空字典
+my_dict = {}
+my_dict1 = dict()
+
+my_dict = {'zzw':18,"ml":[18,'抽烟']}
+print(my_dict)
+# 访问value值
+print(my_dict['ml'][1])
+print(my_dict.get('wy'))  # 如果值不存在返回None
+
+print(my_dict.get('wy', '20'))  # 如果有key则返回值 如果没有返回后面定义的value
+
+# 添加和修改   不存在就添加 存在就修改
+my_dict = {'zzw':'1','ml':'2','wy':'3'}
+my_dict['zzx']= 4
+print(my_dict)
+my_dict['zzx'] = 5
+print(my_dict)
+my_dict[1] = 'int'
+my_dict[1.0] = 'float'
+print(my_dict)        # 1 和1.0是同一个key
+
+# 删除数据
+del my_dict[1]    # 删除指定的KEY  del+字典名  直接删除字典 无法继续使用变量
+print(my_dict)
+
+result = my_dict.pop('zzx')   # 弹出 从表中移除
+print(result,my_dict)
+
+my_dict.clear()   # 删除所有键值对
+print(my_dict)
+
+# 字典的遍历
+my_dict = {'zzw':'帅','ml':'呆','wy':'港'}
+
+for i in my_dict:     # 遍历的是字典的KEY
+    print(i,my_dict[i])
+
+#  字典.keys() 获取字典中所有的key，得到的类型是 dict_keys，该类型数据特点
+# 1. 可以使用list（）进行类型转换，转换为列表类型
+# 2. 可以使用for循环进行遍历
+result = my_dict.keys()
+print(result,type(result))
+
+# 字典.values（）获取所有的值
+print(my_dict.values())
+for value in my_dict.values():
+    print(value)
+
+# items 获取所有的键值对 可以使用list（）转换类型
+print(my_dict.items())
+print('-'* 20)
+result = my_dict.items()
+for item in  my_dict.items():
+    print(item[0],item[1])
+print('-'* 20)
+for k,v in my_dict.items():
+    print(k,v)
+
+
+for i,j in enumerate(my_dict):
+    print(i,my_dict[j])
+
+'''
+支持字符串、列表、元组的操作，获得一个新的容器
+in\not in判断存在或者不存在，如果是字典的话，判断key值是否存在
+'''
+
+my_dict = {'a':10,'b':20,'c':30}    #比较的是value，返回的是key
+print(min(my_dict))
+print(max(my_dict))
+
+my_list = [{},{},{},{'a':10,'b':20,'c':30}]
+print(my_list[3]['a'])
+
+

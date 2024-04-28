@@ -1,0 +1,93 @@
+# 定义函数 def(): 代码 能够实现一个具体的功能，是多上代码的整合
+# 函数定义，函数中的代码不会执行，在函数调用后才会执行
+def func():
+    '''打印字符'''
+    print('good study')
+    print('good day')
+
+
+func()  # 调用函数
+
+help(func)
+
+
+# 定义一个函数，实现两个数字的和
+def add(a, b):  # a b 称为形参
+    # a = 10
+    # b = 20
+    c = a + b
+    print(f'结果为{c}')
+
+
+# 调用函数，如果函数在调用的时候有形参，那么在函数调用的时候必须传递参数值，称为实参
+add(11, 22)
+
+
+# 局部变量，就是在函数内部定义变量，只能在函数内部使用
+def func1():
+    num = 100
+    print(num)
+
+
+# print(num)  在全局调用num会报错
+
+# 全局变量
+g_num = 100
+
+
+def func2():
+    # g_num = 200      # 只是定义了一个和全局变量名字一样的参数，并不是修改全局变量
+    global g_num
+    g_num = 300
+    print(g_num)
+
+
+func2()
+
+print(g_num)  # 全局变量被修改了
+
+# 函数想要返回一个数据值，需要在全局调用时可以使用return
+# 程序遇到return时会终止执行
+
+def add1(a,b):
+    c = a+b
+    print(f'求个的结果时{c}')
+    return c,b       # 默认返回元组，可以返回字典、列表、元组的形式  return (a,b)
+# 函数可以不谢return 写了return不加参数默认为none
+
+res = add1(100,20)
+print(f'全局变量接受{res}')
+
+# 函数的嵌套
+def func(a):
+    print('1')
+    c = a+a
+    return c
+
+def func2(a):
+    print('2')
+    a +=1
+    res = func(a)
+    print(res)
+
+func2(10)
+
+# 函数的嵌套
+def pri_line():
+    print('_'*10)
+
+def pri_line1(n):
+    for i in range(n):
+        pri_line()
+
+pri_line1(2)
+
+def num_sum(a,b,c):
+    return a+b+c
+def average(a,b,c):
+    res = num_sum(a,b,c)
+    return res / 3     # /号返回的是浮点数 float
+result = average(1,2,3)
+print(result)
+
+

@@ -1,0 +1,65 @@
+my_srt = 'hello'
+print(my_srt[len(my_srt)-1])
+
+# 切片   [start:end:step] 不包含end
+print(my_srt[2:5])
+print(my_srt[2:5:2])
+print(my_srt[:4])
+print(my_srt[:])
+print(my_srt[3:1:-1])
+
+print(my_srt[::-1])  # 字符串的逆置 olleh
+print(my_srt[::2])   # 步长2    [:] = len长度  == my_str[0:5:2]
+
+# 字符串常见操作--查找 find&index
+my_srt1 = 'hello world zzw zzw zuishuai'
+# find（）在字符串中查找某个字符串，my_srt.find(sub_str,start,end)
+print(my_srt1.find('world',2,20))  # 返回位置下标，没有找打返回-1
+# rfind() 从右侧查找 返回第一个字的下标
+print(my_srt1.rfind('zzw'),my_srt1.find('zzw'))
+print(my_srt1.rindex('zzw'),my_srt1.index('zzw'))
+
+# 统计字符串出现的次数 count(sub_str,start,end)
+print(my_srt1.count('zzw'))
+
+# replace返回新字符串   str.replace(old_str,new_str,count)  count替换次数，默认全部替换
+
+my_srt2 = my_srt1.replace('zzw','ml',1)  # 替换一次
+print(my_srt2)
+
+my_str = 'hello every Im zzw'
+# 分割 split(sub_str,count) count切割几次，默认全部切割 返回值：列表
+my_str1= my_str.split()  # 默认按照空白字符，全部切割
+my_str2= my_str.split('e',1)
+print(my_str1)
+print(my_str2)
+
+# 字符串的连接 my_str.join(可迭代对象_str_list_元组)
+my_str = '_'.join('hhh')  # 返回值 h_h_h
+print(my_str)
+
+my_list = ['hello','ml','wy']
+print('__'.join(my_list)) # hello__ml__wy
+
+my_str = 'hello every Im zzw'
+print(my_str.capitalize())    # Hello every im zzw
+print(my_str.title())         # Hello Every Im Zzw
+print(my_str.upper())     # HELLO EVERY IM ZZW
+print(my_str.lower())    # hello every im zzw
+print(my_str.upper().islower()) # 判断是否是小写
+
+s2 = '   ddd   '
+print(s2.lstrip())
+print(s2.rstrip())
+print(s2.replace(' ', ''))
+
+
+
+
+
+
+
+
+
+
+
